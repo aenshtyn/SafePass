@@ -28,15 +28,20 @@ class Credentials:
         self.username = username
         self.password = password
 
-    def save_credentials(self)
+    def save_credentials(self):
         Credentials.credential_list.append(self)
 
     def delete_credential(self):
         User.credential_list.remove(self)
 
-        
+
     @classmethod
     def find_by_account_name (cls, account_name):
-        for user in cls.User:
+        for credential in cls.Credentials:
             if credential.username == username
             return credential
+
+    @classmethod
+    def display_credentials(cls)
+
+    return cls.credential_list
