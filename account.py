@@ -11,7 +11,12 @@ class User:
         self.email = email
         self.password = password
 
-        def save_user
+    def tearDown(self):
+            User.user_list = []
+
+
+    def save_user(self):
+            User.user_list.append(self)
 
 class Credentials:
 
@@ -23,11 +28,15 @@ class Credentials:
         self.username = username
         self.password = password
 
-        def delete_credential
+    def save_credentials(self)
+        Credentials.credential_list.append(self)
 
-        User.username.remove(credential)
+    def delete_credential(self):
+        User.credential_list.remove(self)
 
-        def find_by_account_name (cls, account_name):
-            for user in cls.User:
-                if credential.username == username
-                return credential
+        
+    @classmethod
+    def find_by_account_name (cls, account_name):
+        for user in cls.User:
+            if credential.username == username
+            return credential
