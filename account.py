@@ -28,6 +28,7 @@ class Credentials:
 
     credentials_list = []
     user_credentials_list = []
+
 	@classmethod
 	def check_user(cls,email,password):
 
@@ -54,18 +55,18 @@ class Credentials:
 		return gen_pass
 
 
-    @classmethod
-    def find_by_account_name (cls, account_name):
-            for credentials in cls.Credentials:
-                    if credential.account_name == account_name:
-                            return credential
+        @classmethod
+        def find_by_account_name (cls, account_name):
+                for credentials in cls.Credentials:
+                        if credential.account_name == account_name:
+                                return credential
 
-    @classmethod
-    def display_credentials(cls, username):
+        @classmethod
+        def display_credentials(cls, username):
 
-            user_credentials_list = []
+                user_credentials_list = []
 
-            for credentials in cls.credentials_list:
-                if credentials.username == username:
-                    user_credentials_list.append(credentials)
-            return user_credentials_list
+                for credentials in cls.credentials_list:
+                    if credentials.username == username:
+                        user_credentials_list.append(credentials)
+                return user_credentials_list

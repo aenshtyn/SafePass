@@ -38,29 +38,43 @@ class TestCredentials(unittest.TestCase):
         		self.assertEqual(current_user,Credential.check_user(user2.password,user2.first_name))
 
 
+        def setUp(self):
+
+    		    self.new_credential = Credential('Moha','Facebook','aenshtyn','987410')
+
+    	def test__init__(self):
+
+        		self.assertEqual(self.new_credential.user_name,'Moha')
+        		self.assertEqual(self.new_credential.site_name,'Facebook')
+        		self.assertEqual(self.new_credential.account_name,'aenshtyn')
+        		self.assertEqual(self.new_credential.password,'987410')
 
 
 
+    	def test_save_credentials(self):
+
+    		self.new_credential.save_credentials()
+    		twitter = Credential('Moha','Twitter','aenshtyn','654321')
+    		twitter.save_credentials()
+    		self.assertEqual(len(Credential.credentials_list),2)
 
 
+    	def test_display_credentials(self):
 
+    		self.new_credential.save_credentials()
+    		twitter = Credential('Moha','Twitter','aenshtyn','987410')
+    		twitter.save_credentials()
+    		gmail = Credential('Moha','Gmail','aenshtyn','123456')
+    		gmail.save_credentials()
+    		self.assertEqual(len(Credential.display_credentials(twitter.user_name)),2)
 
+    	def test_find_by_account_name(self):
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    		self.new_credential.save_credentials()
+    		twitter = Credential('Moha','Twitter','aenshtyn','123456')
+    		twitter.save_credentials()
+    		credential_exists = Credential.find_by_site_name('Twitter')
+    		self.assertEqual(credential_exists,twitter)
 
 if __name__ ==  '__main__':
     unittest.main()
