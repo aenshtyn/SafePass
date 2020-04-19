@@ -1,3 +1,5 @@
+global user_list
+
 class User:
 
     user_list = []
@@ -7,7 +9,6 @@ class User:
 
         self.first_name = first_name
         self.last_name = last_name
-        self.phone_number = number
         self.email = email
         self.password = password
 
@@ -20,7 +21,7 @@ class User:
 
 class Credentials:
 
-    credential_list = []
+    credentials_list = []
 
     def __init__(self, account_name, username, password):
 
@@ -29,19 +30,24 @@ class Credentials:
         self.password = password
 
     def save_credentials(self):
-        Credentials.credential_list.append(self)
+        Credentials.credentials_list.append(self)
 
     def delete_credential(self):
-        User.credential_list.remove(self)
+        User.credentials_list.remove(self)
 
 
     @classmethod
     def find_by_account_name (cls, account_name):
-        for credential in cls.Credentials:
+        for credentials in cls.Credentials:
             if credential.account_name == account_name:
             return credential
 
     @classmethod
-    def display_credentials(cls)
+    def display_credentials(cls, username):
 
-    return cls.credential_list
+            user_credentials_list = []
+
+            for credentials in cls.credentials_list:
+                if credentials.username == username:
+                    user_credentials_list.append(credentials)
+                return user_credentials_list
