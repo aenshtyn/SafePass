@@ -22,6 +22,15 @@ class User:
 class Credentials:
 
     credentials_list = []
+    user_credentials_list = []
+	@classmethod
+	def check_user(cls,first_name,password):
+
+		current_user = ''
+		for user in User.users_list:
+			if (user.first_name == first_name and user.password == password):
+				current_user = user.first_name
+		return current_user
 
     def __init__(self, account_name, username, password):
 
@@ -34,6 +43,10 @@ class Credentials:
 
     def delete_credential(self):
         User.credentials_list.remove(self)
+
+    def generate_password(size=6, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+		gen_pass=''.join(random.choice(char) for _ in range(size))
+		return gen_pass
 
 
     @classmethod
