@@ -1,8 +1,8 @@
 import pyperclip
 from account import User, Credentials
 
-        def create_user(fname,lname,password):
-        	new_user = User(fname,lname,password)
+        def create_user(first_name,last_name,email,password):
+        	new_user = User(first_name,last_name,email,password)
         	return new_user
 
         def save_user(user):
@@ -62,7 +62,7 @@ def main():
 			print('To login, enter your account details:')
 			user_name = input('Enter your first name - ').strip()
 			password = str(input('Enter your password - '))
-			user_exists = verify_user(user_name,password)
+			user_exists = verify_user(first name,password)
 			if user_exists == user_name:
 				print(" ")
 				print(f'Welcome {user_name}. Please choose an option to continue.')
@@ -98,9 +98,9 @@ def main():
 								break
 							else:
 								print('Oops! Wrong option entered. Try again.')
-						save_credential(create_credential(user_name,site_name,account_name,password))
+						save_credential(create_credential(account_name,username,password))
 						print(' ')
-						print(f'Credential Created: Site Name: {site_name} - Account Name: {account_name} - Password: {password}')
+						print(f'Credential Created: Account Name: {account_name} - Username: {username}- Password: {password}')
 						print(' ')
 					elif short_code == 'dc':
 						print(' ')
@@ -108,24 +108,24 @@ def main():
 							print('Here is a list of all your credentials')
 							print(' ')
 							for credential in display_credentials(user_name):
-								print(f'Site Name: {credential.site_name} - Account Name: {credential.account_name} - Password: {credential.password}')
+								print(f' Username: {credential.username} - Account Name: {credential.account_name} - Password: {credential.password}')
 							print(' ')
 						else:
 							print(' ')
-							print("You don't seem to have any credentials saved yet")
+							print("No credentials saved")
 							print(' ')
 
 					else:
-						print('Oops! Wrong option entered. Try again.')
+						print('Try again.')
 
 			else:
 				print(' ')
-				print('Oops! Wrong details entered. Try again or Create an Account.')
+				print('Try again or Create an Account.')
 
 		else:
 			print("-"*60)
 			print(' ')
-			print('Oops! Wrong option entered. Try again.')
+			print('Wrong option entered. Try again.')
 
 
 
