@@ -10,10 +10,22 @@ SafePass is a terminal run python application that allows users to store usernam
 
 ## Setup/Installation Requirements
 
+###Requirements
 
   python
   pip
   pyperclip
+
+  Step 1 : Run 'git clone https://github.com/aenshtyn/SafePass' on your terminal.
+step 2 : Open your terminal and run the safepass.py file
+
+***BDD***
+
+| Behaviour | Input | Output |
+| --------- | ------| ------ |
+|Open your terminal|run the run.py file and press  `enter`|The terminal displays a statement|
+|Input data to answer the query asked   |Press enter key |Steps to follow appear
+|Redirects the user on some instructions on how to maneuver the application| choose appropriate option| selected process ie. creation or deletion of an account|
 
 
 ## Technologies Used

@@ -1,37 +1,37 @@
 import pyperclip
 from account import User, Credentials
 
-        def create_user(first_name,last_name,email,password):
-        	new_user = User(first_name,last_name,email,password)
-        	return new_user
+def create_user(first_name,last_name,email,password):
+	new_user = User(first_name,last_name,email,password)
+	return new_user
 
-        def save_user(user):
-        	User.save_user(user)
+def save_user(user):
+	User.save_user(user)
 
 
-        def verify_user(first_name,password):
-        	checking_user = Credential.check_user(first_name,password)
-        	return checking_user
+def verify_user(first_name,password):
+	checking_user = Credential.check_user(first_name,password)
+	return checking_user
 
-        def generate_password():
-        	gen_pass = Credential.generate_password()
-        	return gen_pass
+def generate_password():
+	gen_pass = Credential.generate_password()
+	return gen_pass
 
-        def create_credential(account_name,username,password):
-        	new_credential=Credentials(user_name,site_name,account_name,password)
-        	return new_credential
+def create_credential(account_name,username,password):
+	new_credential=Credentials(user_name,site_name,account_name,password)
+	return new_credential
 
-        def save_credential(credential):
+def save_credential(credential):
 
-        	Credentials.save_credentials(credential)
+	Credentials.save_credentials(credential)
 
-        def display_credentials(user_name):
+def display_credentials(user_name):
 
-        	return Credentials.display_credentials(user_name)
+	return Credentials.display_credentials(user_name)
 
-        def copy_credential(site_name):
+def copy_credential(site_name):
 
-        	return Credential.copy_credential(site_name)
+	return Credential.copy_credential(site_name)
 
 
 def main():
