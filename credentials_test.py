@@ -24,18 +24,20 @@ class TestCredential(unittest.TestCase):
 
     def tearDown(self):
 
+         """Cleans up the application for each run """
+
         Credential.credentials_list = []
 
     def setUp(self):
 
-        self.new_credential = Credential("James","Muriuki","0712345678") # create credential object
+        self.new_credential = Credential("Jane","Doe","12345") # create credential object
 
 
     def test_init(self):
 
-        self.assertEqual(self.new_credential.account_name,"James")
-        self.assertEqual(self.new_credential.username,"Muriuki")
-        self.assertEqual(self.new_credential.password,"0712345678")
+        self.assertEqual(self.new_credential.account_name,"Jane")
+        self.assertEqual(self.new_credential.username,"Doe")
+        self.assertEqual(self.new_credential.password,"12345")
 
     def test_save_credential(self):
 
@@ -43,6 +45,8 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(len(Credential.credentials_list),1)
 
     def test_save_multiple_credential(self):
+
+         """Allows user to save multiple credentials"""
 
         self.new_credential.save_credential()
         test_credential = Credential("Test","user","0712345678",) # new credential
@@ -70,10 +74,10 @@ class TestCredential(unittest.TestCase):
     def test_credential_exists(self):
 
         self.new_credential.save_credential()
-        test_credential = Credential("Mighty", "Diamonds", "Marcus" )
+        test_credential = Credential("John ", "Doe", "11111" )
         test_credential.save_credential()
 
-        credential_exists = Credential.credential_exist("Marcus")
+        credential_exists = Credential.credential_exist("Doe")
         self.assertTrue(credential_exists)
 
     # def test_display_credentials(self):
