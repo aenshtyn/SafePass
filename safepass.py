@@ -42,6 +42,12 @@ def display_credentials():
 
     return Credential.display_credentials()
 
+def copy_password():
+
+	return Credential.copy_password()
+
+
+
 def main():
 	print(' ')
 	print('Hello! SafePass at your service! ')
@@ -77,7 +83,7 @@ def main():
 			print(' ')
 			while True:
 				print("\n")
-				print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+				print('Navigation codes: \n cc-Create a Credential \n dc-Display Credentials \n del-Delete a Credential \n copy-Copy Password \n ex-Exit')
 				short_code = input('Enter a choice: ').lower().strip()
 				print("\n")
 
@@ -103,19 +109,7 @@ def main():
 					print (f"New Credentials for {account_name} using {username} as username and {password} as password has been created and stored successfully")
 					print("\n")
 
-				elif short_code == 'copy':
-					print("")
-					if display_credentials():
-						print("Here is a list of all your credentials")
-						print('\n')
 
-						for credential in display_credentials():
-							print(f"{credential.account_name} {credential.username} .....{credential.password}")
-							print('\n')
-					else:
-						print ('\n')
-						print("You dont seem to have any credentials saved yet")
-						print('\n')
 
 				elif short_code == 'dc':
 					print("")
@@ -131,8 +125,21 @@ def main():
 						print("You dont seem to have any credentials saved yet")
 						print('\n')
 
+				elif short_code == 'copy':
+					print(' ')
+						chosen_site = input('Enter the account_name for the credential password to copy: ')
+						copy_credential(chosen_account)
+						print('')
+
+				elif short_code == 'del':
+					print("")
+
+
+
+
 				else:
 					print("I really didn't get that. Please use the short codes")
+
 
 
 		elif short_code == "ex":
