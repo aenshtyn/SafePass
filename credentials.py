@@ -2,6 +2,7 @@ import pyperclip
 
 
 class Credential:
+        """Class that generates instances of a users credentials"""
 
     credentials_list = []
     user_credentials_list = []
@@ -20,10 +21,12 @@ class Credential:
         self.password = password
 
     def save_credential(self):
+         """A save_client credentials method"""
 
         Credential.credentials_list.append(self)
 
     def delete_credential(self):
+        """This methods users to delete details"""
 
         Credential.credentials_list.remove(self)
 

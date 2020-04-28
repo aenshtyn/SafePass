@@ -3,26 +3,35 @@ from credentials import Credential
 from user import User
 
 def create_user(username,password):
+	'''	Function to create a new user account'''
 
 	new_user = User(username,password)
 	return new_user
 
 def save_user(user):
 
+	'''	Function to save a new user account	'''
+
 	User.save_user(user)
 
 
 def verify_user(first_name,password):
+
+	'''	Function that verifies the existance of the user before creating credentials'''
 
 	checking_user = Credential.check_user(username,password)
 	return checking_user
 
 def create_credential(account_name,username,password):
 
+	'''Function to create a new credential'''
+
     new_credential = Credential(account_name,username,password)
     return new_credential
 
 def save_credential(credential):
+
+	'''Function to save a newly created credential'''
 
     credential.save_credential()
 
@@ -39,6 +48,8 @@ def check_existing_credentials(username):
     return Credential.credential_exist(username)
 
 def display_credentials():
+
+	'''Function to display credentials saved by a user'''
 
     return Credential.display_credentials()
 
