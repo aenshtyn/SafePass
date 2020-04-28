@@ -10,7 +10,7 @@ SafePass is a terminal run python application that allows users to store usernam
 
 ## Setup/Installation Requirements
 
-###Requirements
+### Requirements
 
   python
   pip
